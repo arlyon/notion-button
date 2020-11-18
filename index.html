@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trello to PDF</title>
+    <style>
+      body {
+          margin: 0;
+      }
+      a#button {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        border-radius: min(20vh, 50px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20vh 20vw;
+        box-sizing: border-box;
+        user-select: none;
+      }
+      a#button > svg {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: bold;
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <a id="button">
+      <svg
+        height="100%"
+        viewBox="0 0 50 10"
+        preserveAspectRatio="xMinYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <text id="text" x="25" text-anchor="middle" y="8.5" font-size="9" fill="white">
+            🔗 Button
+        </text>
+      </svg>
+    </div>
+
+    <script type="text/javascript">
+      const urlParams = new URLSearchParams(window.location.search);
+      const text = urlParams.get("text");
+      const url = urlParams.get("url");
+      const icon = urlParams.get("icon") || '🔗';
+      const color = urlParams.get("color") || "black";
+
+      const textContent = document.getElementById("text");
+      textContent.innerHTML = `${icon}  ${text}`;
+
+      const link = document.getElementById("button");
+      if (url != null) {
+        link.setAttribute("href", url);
+      }
+    </script>
+  </body>
+</html>
